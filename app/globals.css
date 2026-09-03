@@ -14,8 +14,10 @@
 
 @layer components {
   .features-grid {
+    display: grid;
     grid-template-columns: repeat(3, 256px);
     justify-content: center;
+    gap: 2.5rem;
   }
   
   @media (max-width: 640px) {

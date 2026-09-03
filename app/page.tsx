@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar";
 import HeroSection from "@/components/heroSection";
-import TestimonialsSection from "@/components/testimonialsSection";
+import TestimonialsSection from "@/components/testimonialsCard";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/footer";
 
