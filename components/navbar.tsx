@@ -21,22 +21,25 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Mobile hamburger */}
-        <button
-          id="mobile-menu-button"
-          aria-controls="mobile-menu"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen(!isOpen)}
-          className="inline-flex items-center justify-center rounded-md p-2 sm:hidden"
-        >
-          <span className="sr-only">Open main menu</span>
-          <img
-            src="/assets/menu.svg"
-            alt="Menu"
-            aria-hidden="true"
-            className="h-10 w-10"
-          />
-        </button>
+        {/* Mobile controls */}
+        <div className="flex items-center gap-2 sm:hidden">
+          <ThemeToggle />
+          <button
+            id="mobile-menu-button"
+            aria-controls="mobile-menu"
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen(!isOpen)}
+            className="inline-flex items-center justify-center rounded-md p-2"
+          >
+            <span className="sr-only">Open main menu</span>
+            <img
+              src="/assets/menu.svg"
+              alt="Menu"
+              aria-hidden="true"
+              className="h-10 w-10"
+            />
+          </button>
+        </div>
 
         {/* Desktop nav */}
         <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-20 text-[30px] text-white sm:flex">
