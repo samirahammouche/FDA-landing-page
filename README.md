@@ -77,8 +77,15 @@ Defined in `globals.css` under `@theme`:
 Use them as utility classes, e.g. `text-dp-yellow`, `bg-dp-navy`.
 
 ## Screen shots
-![Homepage hero section](assets/img1.png)
-![Homepage hero section](assets/img2.png)
+Desktop:
+![DataPilot Desktop](public/assets/img3.png)
+![DataPilot Desktop](public/assets/img1.png)
+
+Mobile:
+![DataPilot Desktop](public/assets/img2.png)
+![DataPilot Desktop](public/assets/screenshot1.png)
+## Author
+Samira Hammouche
 
 ## License
 
