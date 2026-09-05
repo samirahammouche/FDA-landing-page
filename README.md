@@ -50,6 +50,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## APP link
+[text](https://fda-landing-page.vercel.app/)
 ## Dark Mode
 
 Dark mode is class-based. The theme is applied by toggling the `dark` class on `<html>`, with the preference persisted in `localStorage`. The Tailwind v4 dark variant is defined in `globals.css`:
@@ -73,6 +75,10 @@ Defined in `globals.css` under `@theme`:
 | `--color-dp-bluee` | `#2B638D` |
 
 Use them as utility classes, e.g. `text-dp-yellow`, `bg-dp-navy`.
+
+## Screen shots
+![Homepage hero section](assets/img1.png)
+![Homepage hero section](assets/img2.png)
 
 ## License
 
