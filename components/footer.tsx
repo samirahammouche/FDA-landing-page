@@ -57,7 +57,7 @@ export default function Footer() {
           </nav>
         </section>
 
-        {/* Our Services */}
+        {/* Our Services*/}
         <section aria-labelledby="our-services">
           <h2
             id="our-services"
@@ -106,7 +106,7 @@ export default function Footer() {
           </address>
         </section>
 
-        {/* Contact Form - spans full width */}
+        {/* Contact Form  spans full width */}
         <section
           aria-labelledby="contact-form-title"
           className="col-span-1 sm:col-span-4"
