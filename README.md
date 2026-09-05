@@ -1,34 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DataPilot
+
+A modern, responsive marketing website for **DataPilot** — a data analytics platform that helps teams understand their data through powerful analytics and intelligent insights.
+
+Built with **Next.js**, **React**, **Tailwind CSS v4**, and **TypeScript**.
+
+## Features
+
+- **Fully responsive** — mobile-first layout with hamburger menu, tablet and desktop breakpoints
+- **Dark / light mode** — manual toggle with system preference detection, saved to `localStorage`
+- **Animated mobile menu** — smooth max-height/opacity transitions
+- **FAQ accordion** — smooth expand/collapse with accessibility attributes
+- **Contact form** — client-side validation with inline error messages
+- **Theming** — custom brand colors via Tailwind v4 `@theme` tokens
+
+## Tech Stack
+
+| Tool | Purpose |
+| --- | --- |
+| Next.js (App Router) | Framework |
+| React | UI components |
+| TypeScript | Type safety |
+| Tailwind CSS v4 | Styling |
+| next/link | Client-side navigation |
+
+## Project Structure
+
+```javascript
+├── app/                  # Pages and layouts
+├── components/
+│   ├── Navbar.tsx        # Header with mobile menu + theme toggle
+│   ├── ThemeToggle.tsx   # Dark/light mode toggle
+│   ├── Footer.tsx        # Footer with contact info + form
+│   ├── ContactForm.tsx   # Validated contact form
+│   ├── TestimonialsSection.tsx
+│   └── TestimonialCard.tsx
+├── public/assets/        # Images and SVGs (logo, icons, photos)
+└── globals.css           # Tailwind v4 config, theme tokens, dark variant
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Dark Mode
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Dark mode is class-based. The theme is applied by toggling the `dark` class on `<html>`, with the preference persisted in `localStorage`. The Tailwind v4 dark variant is defined in `globals.css`:
 
-## Learn More
+```css
+@custom-variant dark (&:where(.dark, .dark *));
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Custom Theme Colors
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Defined in `globals.css` under `@theme`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Token | Color |
+| --- | --- |
+| `--color-dp-navy` | `#033494` |
+| `--color-dp-blue` | `#075B91` |
+| `--color-dp-yellow` | `#FEBF03` |
+| `--color-dp-light` | `#F1F1F1` |
+| `--color-dp-card` | `#C7D5DA` |
+| `--color-dp-text` | `#243B5A` |
+| `--color-dp-bluee` | `#2B638D` |
 
-## Deploy on Vercel
+Use them as utility classes, e.g. `text-dp-yellow`, `bg-dp-navy`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+© 2026 DataPilot. All rights reserved.
