@@ -1,11 +1,60 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "./themeToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const [maxHeight, setMaxHeight] = useState("0px");
+
+  // Measure and animate — mirrors the FAQ accordion in script.js
+  useEffect(() => {
+    function updateHeight() {
+      if (isOpen && menuRef.current) {
+        setMaxHeight(menuRef.current.scrollHeight + "px");
+      } else {
+        setMaxHeight("0px");
+      }
+    }
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, [isOpen]);
+
+  useEffect(() => {
+    function closeMenuOnDesktop() {
+      if (window.innerWidth >= 640) setIsOpen(false);
+    }
+
+    function closeMenuOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsOpen((open) => {
+          if (open) document.getElementById("mobile-menu-button")?.focus();
+          return false;
+        });
+      }
+    }
+
+    function closeMenuOutside(event: MouseEvent) {
+      const target = event.target as Node;
+      const menu = document.getElementById("mobile-menu");
+      const button = document.getElementById("mobile-menu-button");
+      if (menu && button && !menu.contains(target) && !button.contains(target)) {
+        setIsOpen(false);
+      }
+    }
+
+    window.addEventListener("resize", closeMenuOnDesktop);
+    document.addEventListener("keydown", closeMenuOnEscape);
+    document.addEventListener("click", closeMenuOutside);
+    return () => {
+      window.removeEventListener("resize", closeMenuOnDesktop);
+      document.removeEventListener("keydown", closeMenuOnEscape);
+      document.removeEventListener("click", closeMenuOutside);
+    };
+  }, []);
 
   return (
     <header className="absolute left-0 right-0 top-0 z-30">
@@ -23,7 +72,10 @@ export default function Navbar() {
 
         {/* Mobile controls */}
         <div className="flex items-center gap-2 sm:hidden">
-          <ThemeToggle />
+
+          <span className="hidden sm:inline-flex">
+            <ThemeToggle />
+          </span>
           <button
             id="mobile-menu-button"
             aria-controls="mobile-menu"
@@ -79,9 +131,17 @@ export default function Navbar() {
       {/* Mobile menu panel */}
       <div
         id="mobile-menu"
-        className={`absolute right-6 top-16 z-40 w-[200px] rounded-2xl bg-white shadow-md dark:border dark:border-white/10 dark:bg-[#0B1526] sm:hidden ${
-          isOpen ? "block" : "hidden"
-        }`}
+        ref={menuRef}
+        className="absolute right-6 top-16 z-40 w-[200px] rounded-2xl bg-white shadow-md dark:border dark:border-white/10 dark:bg-[#0B1526] sm:hidden"
+        style={{
+          maxHeight,
+          overflow: "hidden",
+          opacity: isOpen ? 1 : 0,
+          paddingTop: isOpen ? "" : "0",
+          paddingBottom: isOpen ? "" : "0",
+          transition:
+            "max-height 0.3s ease-in-out, opacity 0.25s ease-in-out, padding 0.3s ease-in-out",
+        }}
       >
         <div className="mx-auto max-w-[1200px] px-6 py-4">
           <ul className="space-y-3">
@@ -130,37 +190,9 @@ export default function Navbar() {
                 Sign Up
               </Link>
             </li>
+            {/* Theme toggle now uses the real component */}
             <li>
-              <button
-                type="button"
-                onClick={() => {
-                  const html = document.documentElement;
-                  const isDark = html.classList.toggle("dark");
-                  localStorage.setItem("theme", isDark ? "dark" : "light");
-                }}
-                className="flex items-center gap-2 font-semibold text-dp-yellow"
-              >
-                <svg
-                  className="h-4 w-4 dark:hidden"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-                </svg>
-                <svg
-                  className="hidden h-4 w-4 dark:block"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-                </svg>
-                <span>Dark Mode</span>
-              </button>
+              <ThemeToggle withLabel />
             </li>
           </ul>
         </div>

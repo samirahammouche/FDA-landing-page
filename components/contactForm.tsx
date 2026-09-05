@@ -1,16 +1,22 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useEffect, useState, FormEvent } from "react";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [nameValid, setNameValid] = useState(false);
+  const [emailValid, setEmailValid] = useState(false);
+  const [nameTouched, setNameTouched] = useState(false);
+  const [emailTouched, setEmailTouched] = useState(false);
   const [success, setSuccess] = useState(false);
 
   function validateName(value: string) {
-    if (value.trim().length === 0) {
+    const valid = value.trim().length > 0;
+    setNameValid(valid);
+    if (!valid) {
       setNameError("Name is required.");
       return false;
     }
@@ -21,10 +27,12 @@ export default function ContactForm() {
   function validateEmail(value: string) {
     const trimmed = value.trim();
     if (!trimmed) {
+      setEmailValid(false);
       setEmailError("Email is required.");
       return false;
     }
     const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed);
+    setEmailValid(ok);
     if (!ok) {
       setEmailError("Please enter a valid email address.");
       return false;
@@ -32,6 +40,14 @@ export default function ContactForm() {
     setEmailError("");
     return true;
   }
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      if (nameTouched) validateName(name);
+      if (emailTouched) validateEmail(email);
+    }, 300);
+    return () => window.clearTimeout(timeout);
+  }, [name, email, nameTouched, emailTouched]);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -46,6 +62,10 @@ export default function ContactForm() {
 
     setName("");
     setEmail("");
+    setNameValid(false);
+    setEmailValid(false);
+    setNameTouched(false);
+    setEmailTouched(false);
     setSuccess(true);
   }
 
@@ -77,12 +97,15 @@ export default function ContactForm() {
           aria-required="true"
           value={name}
           onChange={(e) => {
+            setNameTouched(true);
             setName(e.target.value);
-            if (nameError) validateName(e.target.value);
           }}
-          onBlur={() => validateName(name)}
+          onBlur={() => {
+            setNameTouched(true);
+            validateName(name);
+          }}
           className={`w-full rounded-md border-2 bg-white/10 px-4 py-2.5 text-white placeholder-white/50 outline-none transition-colors focus:border-dp-yellow ${
-            nameError ? "border-red-500" : "border-white/30"
+            nameError ? "border-red-500" : nameValid ? "border-green-500" : "border-white/30"
           }`}
         />
         {nameError && (
@@ -108,12 +131,15 @@ export default function ContactForm() {
           aria-required="true"
           value={email}
           onChange={(e) => {
+            setEmailTouched(true);
             setEmail(e.target.value);
-            if (emailError) validateEmail(e.target.value);
           }}
-          onBlur={() => validateEmail(email)}
+          onBlur={() => {
+            setEmailTouched(true);
+            validateEmail(email);
+          }}
           className={`w-full rounded-md border-2 bg-white/10 px-4 py-2.5 text-white placeholder-white/50 outline-none transition-colors focus:border-dp-yellow ${
-            emailError ? "border-red-500" : "border-white/30"
+            emailError ? "border-red-500" : emailValid ? "border-green-500" : "border-white/30"
           }`}
         />
         {emailError && (

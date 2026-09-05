@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import FAQItem from "./FAQItems";
 
 const faqs = [
@@ -24,6 +27,8 @@ const faqs = [
 ];
 
 export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <section
       id="faq"
@@ -40,7 +45,13 @@ export default function FAQSection() {
 
         <div className="mt-8 space-y-4">
           {faqs.map((faq, i) => (
-            <FAQItem key={i} question={faq.question} answer={faq.answer} />
+            <FAQItem
+              key={i}
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
           ))}
         </div>
       </div>

@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-gradient-to-br from-[#075B91] to-[#0B3C80] px-10 pb-4 pt-7 text-white dark:from-[#050D1C] dark:to-[#0A2545] sm:px-[210px] sm:pt-4"
+      className="bg-gradient-to-br from-[#075B91] to-[#0B3C80] px-0 pb-4 pt-7 text-white dark:from-[#050D1C] dark:to-[#0A2545] sm:px-[210px] sm:pt-4"
     >
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-7 text-left sm:grid-cols-4 sm:gap-5">
+      <div className="mx-auto grid w-[268px] max-w-full grid-cols-1 gap-8 text-left sm:w-auto sm:max-w-[1200px] sm:grid-cols-4 sm:gap-5">
         {/* Brand */}
         <section aria-labelledby="footer-brand">
           <div className="flex justify-center sm:justify-start">
@@ -22,7 +22,7 @@ export default function Footer() {
           <h2 id="footer-brand" className="sr-only">
             About DataPilot
           </h2>
-          <p className="mx-auto mt-4 max-w-[200px] text-[16px] font-semibold leading-[1.45] text-white sm:mx-0 sm:max-w-[250px] sm:text-[20px]">
+          <p className="mx-auto mt-4 max-w-[268px] text-[20px] font-semibold leading-[1.45] text-white sm:mx-0 sm:max-w-[250px] sm:text-[20px]">
             Powerful analytics and intelligent insights to help modern teams
             understand their data and move forward with confidence.
           </p>

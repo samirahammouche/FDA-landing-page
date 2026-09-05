@@ -41,7 +41,7 @@ export default function TestimonialCard({
       <p className="mt-0.5 text-[18px] leading-[1.35] text-[#243B5A] dark:text-white/90">
         {quote}
       </p>
-      <span className="ml-auto px-1.5 py-0.5 text-[25px] font-semibold dark:text-white">
+      <span className="ml-auto px-1.5 py-0.5 text-[25px] font-semibold text-dp-navy/80 dark:text-white">
         {name}
       </span>
       <p className="mt-1 text-[18px] text-dp-navy/80 dark:text-[#a2b6c4]">
