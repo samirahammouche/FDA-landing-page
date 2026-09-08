@@ -7,8 +7,9 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend,
 } from "recharts";
-import Navbar from "@/components/navbar";
+
 import Footer from "@/components/footer";
+import ExplorerNavbar from "@/components/explorerNavbar";
 
 type Product = {
   id: number;
@@ -111,7 +112,7 @@ export default function ExplorerPage() {
   /* RENDER  */
   return (
     <div className="min-h-screen bg-[#F1F4F9] dark:bg-[#0B1526]">
-      <Navbar />
+      <ExplorerNavbar />
 
       <main className="px-7 py-16 sm:px-10">
         <div className="mx-auto max-w-[1200px] pt-[98px]">
