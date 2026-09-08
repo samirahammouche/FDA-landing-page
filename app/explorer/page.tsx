@@ -16,7 +16,7 @@ type Product = {
   price: number;
   description: string;
   category: string;
-  thumbnail: string; // dummyjson field (was "image" on fakestore)
+  thumbnail: string; 
 };
 
 const COLORS = ["#F5B700", "#0B1526", "#3B82F6", "#10B981", "#EF4444", "#8B5CF6"];
@@ -48,7 +48,7 @@ export default function ExplorerPage() {
     fetchProducts();
   }, []);
 
-  /* ---------- 1. FILTER + SORT (drives EVERYTHING below) ---------- */
+  /* FILTER + SORT */
   const categories = useMemo(
     () => Array.from(new Set(products.map((p) => p.category))).sort(),
     [products]
@@ -68,7 +68,7 @@ export default function ExplorerPage() {
     return result;
   }, [products, searchTerm, selectedCategory, sortAsc]);
 
-  /* ---------- 2. DERIVED ANALYTICS (from filteredProducts!) ---------- */
+  /* DERIVED ANALYTICS */
   const stats = useMemo(() => {
     if (filteredProducts.length === 0)
       return { total: 0, avg: 0, max: 0, min: 0 };
@@ -108,9 +108,9 @@ export default function ExplorerPage() {
     [filteredProducts]
   );
 
-  /* ---------- 3. RENDER ---------- */
+  /* RENDER  */
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0B1526]">
+    <div className="min-h-screen bg-[#F1F4F9] dark:bg-[#0B1526]">
       <Navbar />
 
       <main className="px-7 py-16 sm:px-10">
