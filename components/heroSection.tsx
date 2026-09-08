@@ -55,7 +55,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
 
           <div className="mt-8 flex justify-center">
             <Link
-              href="/#services"
+              href="/explorer"
               className="inline-flex h-[70px] w-[300px] items-center justify-center rounded-full bg-dp-navy px-7 text-[30px] font-bold text-white shadow-lg transition hover:-translate-y-0.5 sm:h-[50px] sm:px-8 sm:text-[30px]"
             >
               Start For Free
