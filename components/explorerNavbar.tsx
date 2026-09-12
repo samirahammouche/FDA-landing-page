@@ -11,6 +11,8 @@ export default function ExplorerNavbar() {
           <Image
             src="/assets/datapilot_logo.svg"
             alt="DataPilot"
+            width={1935}
+            height={355}
             className="h-[32px] w-auto"
           />
         </Link>

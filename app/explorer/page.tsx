@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Search, Loader2 } from "lucide-react";
 import {
@@ -272,9 +273,11 @@ export default function ExplorerPage() {
                       className="overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-[#111E33]"
                     >
                       <div className="flex h-56 items-center justify-center bg-gray-50 p-6 dark:bg-[#17243A]">
-                        <img
+                        <Image
                           src={product.thumbnail}
                           alt={product.title}
+                          width={300}
+                          height={224}
                           className="h-full max-w-full object-contain"
                         />
                       </div>
