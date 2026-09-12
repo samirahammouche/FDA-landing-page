@@ -16,7 +16,6 @@ export default function HeroSection({ children }: HeroSectionProps) {
       {/* Light hero background */}
       <Image
         src="/assets/light_hero_img.jpg"
-        srcSet="/assets/light_hero_img.jpg 500w, /assets/light_hero_img.jpg 1000w, /assets/light_hero_img.jpg 1500w"
         sizes="(max-width: 768px) 100vw, 1465px"
         alt="light mode hero image"
         width={1920}
@@ -27,9 +26,6 @@ export default function HeroSection({ children }: HeroSectionProps) {
       {/* Dark hero background */}
       <Image
         src="/assets/dark_hero_img.jpg"
-        srcSet="/assets/dark_hero_img.jpg 500w, /assets/dark_hero_img.jpg 1000w, /assets/dark_hero_img.jpg 1500w"
-        sizes="(max-width: 768px) 100vw, 1465px"
-        srcSet="/assets/dark_hero_img.jpg 500w, /assets/dark_hero_img.jpg 1000w, /assets/dark_hero_img.jpg 1500w"
         sizes="(max-width: 768px) 100vw, 1465px"
         alt="dark mode hero image"
         width={1920}
