@@ -185,11 +185,20 @@ Because the charts are derived from the filtered data, they automatically update
 ## Screen shots
 Desktop:
 ![DataPilot Desktop](public/assets/img3.png)
+![DataPilot Desktop](public/assets/datalight.png)
 ![DataPilot Desktop](public/assets/img1.png)
+![DataPilot Desktop](public/assets/data1.png)
+![DataPilot Desktop](public/assets/data2.png)
+![DataPilot Desktop](public/assets/data3.png)
+![DataPilot Desktop](public/assets/data4.png)
 
 Mobile:
 ![DataPilot Desktop](public/assets/img2.png)
 ![DataPilot Desktop](public/assets/screenshot1.png)
+![DataPilot Desktop](public/assets/datamob.png)
+![DataPilot Desktop](public/assets/datamob1.png)
+![DataPilot Desktop](public/assets/datamob2.png)
+
 ## Author
 Samira Hammouche
 
