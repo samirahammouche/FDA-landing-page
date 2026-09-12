@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -13,7 +14,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
       className="relative min-h-[560px] overflow-hidden pt-10 text-white"
     >
       {/* Light hero background */}
-      <img
+      <Image
         src="/assets/light_hero_img.jpg"
         srcSet="/assets/light_hero_img.jpg 500w, /assets/light_hero_img.jpg 1000w, /assets/light_hero_img.jpg 1500w"
         sizes="(max-width: 768px) 100vw, 1465px"
@@ -24,8 +25,10 @@ export default function HeroSection({ children }: HeroSectionProps) {
         className="absolute inset-0 h-full w-full object-cover object-center dark:hidden"
       />
       {/* Dark hero background */}
-      <img
+      <Image
         src="/assets/dark_hero_img.jpg"
+        srcSet="/assets/dark_hero_img.jpg 500w, /assets/dark_hero_img.jpg 1000w, /assets/dark_hero_img.jpg 1500w"
+        sizes="(max-width: 768px) 100vw, 1465px"
         srcSet="/assets/dark_hero_img.jpg 500w, /assets/dark_hero_img.jpg 1000w, /assets/dark_hero_img.jpg 1500w"
         sizes="(max-width: 768px) 100vw, 1465px"
         alt="dark mode hero image"

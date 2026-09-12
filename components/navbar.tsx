@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import ThemeToggle from "./themeToggle";
 
@@ -63,9 +64,11 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         <Link href="/" aria-label="DataPilot home" className="block">
-          <img
+          <Image
             src="/assets/datapilot_logo.svg"
             alt="DataPilot"
+            width={1935}
+            height={355}
             className="h-[32px] w-auto"
           />
         </Link>
@@ -84,10 +87,12 @@ export default function Navbar() {
             className="inline-flex items-center justify-center rounded-md p-2"
           >
             <span className="sr-only">Open main menu</span>
-            <img
+            <Image
               src="/assets/menu.svg"
               alt="Menu"
               aria-hidden="true"
+              width={40}
+              height={40}
               className="h-10 w-10"
             />
           </button>

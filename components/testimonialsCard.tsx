@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface TestimonialCardProps {
   name: string;
   role: string;
@@ -16,7 +18,7 @@ export default function TestimonialCard({
   return (
     <article className="w-full min-w-[300px] rounded-[3px] bg-[#F5F7F8] p-2.5 dark:bg-[#132038]">
       <div className="flex items-start justify-between">
-        <img
+        <Image
           src={imageSrc}
           alt={name}
           width={64}
