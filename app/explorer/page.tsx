@@ -9,7 +9,7 @@ import {
   PieChart, Pie, Cell, Legend,
 } from "recharts";
 
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import ExplorerNavbar from "@/components/ExplorerNavbar";
 
 type Product = {
