@@ -1,9 +1,9 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
