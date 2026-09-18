@@ -1,4 +1,4 @@
-import TestimonialCard from "./testimonialsCard";
+import TestimonialCard from "./TestimonialsCard";
 
 const testimonials = [
   {
@@ -44,7 +44,7 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        {/* ⚠️ fixed: no min-w-[300px] on cards, gap-6 instead of 170px */}
+        {/*  fixed: no min-w-[300px] on cards, gap-6 instead of 170px */}
         <div className="mx-auto mt-3 grid max-w-[1000px] grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
           {testimonials.map((t) => (
             <TestimonialCard key={t.name} {...t} />

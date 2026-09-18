@@ -9,8 +9,8 @@ import {
   PieChart, Pie, Cell, Legend,
 } from "recharts";
 
-import Footer from "@/components/footer";
-import ExplorerNavbar from "@/components/explorerNavbar";
+import Footer from "@/components/Footer";
+import ExplorerNavbar from "@/components/ExplorerNavbar";
 
 type Product = {
   id: number;
