@@ -12,14 +12,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DataPilot ",
     description: "Description de ton produit ou service.",
-    url: "https://fda-landing-page.vercel.app/",        // Vercel
+    url: "https://fda-landing-page.vercel.app/",
     siteName: "DataPilot",
     images: [
       {
-        url: "/og-image.jpg",                 
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Aperçu de mon site",
+        alt: "DataPilot analytics platform",
       },
     ],
     type: "website",

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ReactNode } from "react";
+import Button from "./Button";
 
 interface HeroSectionProps {
   children?: ReactNode;
@@ -13,7 +13,6 @@ export default function HeroSection({ children }: HeroSectionProps) {
       aria-labelledby="hero-title"
       className="relative min-h-[560px] overflow-hidden pt-10 text-white"
     >
-      {/* Light hero background */}
       <Image
         src="/assets/light_hero_img.jpg"
         sizes="(max-width: 768px) 100vw, 1465px"
@@ -23,7 +22,6 @@ export default function HeroSection({ children }: HeroSectionProps) {
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover object-center dark:hidden"
       />
-      {/* Dark hero background */}
       <Image
         src="/assets/dark_hero_img.jpg"
         sizes="(max-width: 768px) 100vw, 1465px"
@@ -53,16 +51,15 @@ export default function HeroSection({ children }: HeroSectionProps) {
           </p>
 
           <div className="mt-8 flex justify-center">
-            <Link
+            <Button
               href="/explorer"
-              className="inline-flex h-[70px] w-[300px] items-center justify-center rounded-full bg-dp-navy px-7 text-[30px] font-bold text-white shadow-lg transition hover:-translate-y-0.5 sm:h-[50px] sm:px-8 sm:text-[30px]"
+              className="h-[70px] w-[300px] px-7 text-[30px] shadow-lg hover:-translate-y-0.5 sm:h-[50px] sm:px-8"
             >
               Start For Free
-            </Link>
+            </Button>
           </div>
         </div>
 
-        {/* FeaturesSection est rendu ici, à l'intérieur du hero */}
         {children}
       </div>
     </section>
