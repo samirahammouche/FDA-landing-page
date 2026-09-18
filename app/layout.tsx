@@ -12,6 +12,7 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"),
   title: "DataPilot — Turn Your Company Data Into Answers",
   description:
     "DataPilot turns company data into clear, actionable insights.",
