@@ -12,14 +12,26 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
-  title: "DataPilot — Turn Your Company Data Into Answers",
-  description:
-    "DataPilot turns company data into clear, actionable insights.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: {
+    default: "DataPilot — Turn Your Company Data Into Answers",
+    template: "%s | DataPilot",
+  },
+  description: "DataPilot turns company data into clear, actionable insights.",
   openGraph: {
     title: "DataPilot — Turn Your Company Data Into Answers",
     description: "DataPilot turns company data into clear, actionable insights.",
+    url: "https://your-app.vercel.app",
+    siteName: "DataPilot",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DataPilot — Turn Your Company Data Into Answers",
+      },
+    ],
   },
 };
 
