@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 interface FeatureCardProps {
   title: string;
   description: string;

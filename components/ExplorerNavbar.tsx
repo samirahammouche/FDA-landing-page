@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Button from "./Button";
 
 export default function ExplorerNavbar() {
   return (
@@ -17,9 +18,9 @@ export default function ExplorerNavbar() {
           />
         </Link>
 
-        <button className="rounded-xl bg-dp-yellow px-5 py-2.5 text-sm font-semibold text-dp-navy transition hover:opacity-90">
+        <Button variant="yellow" className="rounded-xl px-5 py-2.5 text-sm font-semibold shadow-none hover:opacity-90 hover:brightness-100">
           Upgrade Plan
-        </button>
+        </Button>
       </div>
     </header>
   );

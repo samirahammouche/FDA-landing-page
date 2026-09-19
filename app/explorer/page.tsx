@@ -40,7 +40,6 @@ export default function ExplorerPage() {
         const json = await response.json();
         setProducts(json.products);
       } catch (err) {
-        console.error("Fetch error:", err);
         setError(err instanceof Error ? err.message : "Something went wrong");
       } finally {
         setIsLoading(false);
@@ -50,7 +49,6 @@ export default function ExplorerPage() {
     fetchProducts();
   }, []);
 
-  /* FILTER + SORT */
   const categories = useMemo(
     () => Array.from(new Set(products.map((p) => p.category))).sort(),
     [products]
@@ -70,7 +68,6 @@ export default function ExplorerPage() {
     return result;
   }, [products, searchTerm, selectedCategory, sortAsc]);
 
-  /* DERIVED ANALYTICS */
   const stats = useMemo(() => {
     if (filteredProducts.length === 0)
       return { total: 0, avg: 0, max: 0, min: 0 };
@@ -110,7 +107,6 @@ export default function ExplorerPage() {
     [filteredProducts]
   );
 
-  /* RENDER  */
   return (
     <div className="min-h-screen bg-[#F1F4F9] dark:bg-[#0B1526]">
       <ExplorerNavbar />

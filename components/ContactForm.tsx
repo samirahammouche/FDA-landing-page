@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, FormEvent } from "react";
+import Button from "./Button";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -149,12 +150,12 @@ export default function ContactForm() {
         )}
       </div>
 
-      <button
+      <Button
         type="submit"
-        className="rounded-full bg-dp-yellow px-6 py-2.5 font-bold text-dp-navy shadow-md transition hover:brightness-105"
+        variant="yellow"
       >
         Submit
-      </button>
+      </Button>
 
       {success && (
         <p className="mt-3 text-[16px] font-semibold text-green-300">
