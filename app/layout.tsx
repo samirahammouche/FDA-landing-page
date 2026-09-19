@@ -21,12 +21,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DataPilot — Turn Your Company Data Into Answers",
     description: "DataPilot turns company data into clear, actionable insights.",
-    url: "https://your-app.vercel.app",
+    url: "https://fda-landing-page.vercel.app/",
     siteName: "DataPilot",
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "assets/og-image.png",
         width: 1200,
         height: 630,
         alt: "DataPilot — Turn Your Company Data Into Answers",
